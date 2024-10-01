@@ -1,15 +1,16 @@
-// create web server
-// 1. import express
+// Create web server
+// 1. Import express
 const express = require('express');
-// 2. create express app
 const app = express();
-// 3. create a port
-const port = 3000;
-// 4. create a route
-app.get('/', (req, res) => {
-    res.send('Hello World!');
+// 2. Create server
+app.listen(3000, () => {
+  console.log('Server is running at http://localhost:3000');
 });
-// 5. start the server
-app.listen(port, () => {
-    console.log(`Server started at http://localhost:${port}`);
+// 3. Create route
+app.get('/comments', (req, res) => {
+  res.send('Comments page');
+});
+// 4. Create route
+app.get('/comments/:id', (req, res) => {
+  res.send('Comment ID: ' + req.params.id);
 });
